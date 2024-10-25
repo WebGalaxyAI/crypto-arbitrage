@@ -34,5 +34,19 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'binance' => [
+        'base_url' => env('BINANCE_API_URL', 'https://api.binance.com'),
+    ],
+    'poloniex' => [
+        'base_url' => env('POLONIEX_API_URL', 'https://api.poloniex.com'),
+    ],
+    'jbex' => [
+        'base_url' => env('JBEX_API_URL', 'https://api.jbex.com/openapi/quote/v1'),
+    ],
+    'bybit' => [
+        'base_url' => env('BYBIT_API_URL', 'https://api.bybit.com/v5/market'),
+    ],
+    'whitebit' => [
+        'base_url' => env('WHITEBIT_API_URL', 'https://whitebit.com/api/v4'),
+    ],
 ];
