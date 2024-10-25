@@ -41,10 +41,10 @@ return [
         'base_url' => env('POLONIEX_API_URL', 'https://api.poloniex.com'),
     ],
     'jbex' => [
-        'base_url' => env('JBEX_API_URL', 'https://api.jbex.com/openapi/quote/v1'),
+        'base_url' => env('JBEX_API_URL', 'https://api.jbex.com'),
     ],
     'bybit' => [
-        'base_url' => env('BYBIT_API_URL', 'https://api.bybit.com/v5/market'),
+        'base_url' => env('BYBIT_API_URL', 'https://api.bybit.com'),
     ],
     'whitebit' => [
         'base_url' => env('WHITEBIT_API_URL', 'https://whitebit.com/api/v4'),

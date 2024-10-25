@@ -4,12 +4,11 @@ namespace App\Exchanges\Services;
 
 use App\Exchanges\DataObjects\PriceDto;
 use Illuminate\Container\Attributes\Config;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
-class BybitApiClient
+class BybitApiClient extends AbstractApiClient
 {
-    protected string $exchange = 'Bybit';
-
     public function __construct(
         #[Config('services.bybit.base_url')]
         protected string $apiUrl
@@ -22,7 +21,7 @@ class BybitApiClient
 
     public function getCurrentPrice(string $baseCurrency, string $quoteCurrency): ?PriceDto
     {
-        $response = Http::get($this->apiUrl . '/tickers', [
+        $response = Http::get($this->apiUrl . '/v5/market/tickers', [
             'category' => 'spot',
             'symbol' => $this->symbol($baseCurrency, $quoteCurrency),
         ]);
@@ -31,6 +30,35 @@ class BybitApiClient
             return null;
         }
         $price = (float) $data['result']['list'][0]['lastPrice'];
-        return new PriceDto($this->exchange, $price);
+        return new PriceDto(
+            exchange: $this->exchangeName(),
+            price: $price,
+            symbol: $this->symbol($baseCurrency, $quoteCurrency),
+            symbolDelimiter: $this->symbolDelimiter(),
+            baseCurrency: $baseCurrency,
+            quoteCurrency: $quoteCurrency
+        );
+    }
+
+    public function getAllSymbolPrices(): Collection
+    {
+        $res = Http::get($this->apiUrl . '/v5/market/tickers', [
+            'category' => 'spot',
+        ]);
+        return collect($res->json()['result']['list'] ?? [])
+            ->map(function (array $data) {
+                return new PriceDto(
+                    exchange: $this->exchangeName(),
+                    price: $data['lastPrice'],
+                    symbol: $data['symbol'],
+                    symbolDelimiter: $this->symbolDelimiter(),
+                );
+            });
+
+    }
+
+    public function exchangeName(): string
+    {
+        return 'Bybit';
     }
 }
