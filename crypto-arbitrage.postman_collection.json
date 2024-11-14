@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "5bc7e059-9802-4380-ad12-e6c5b1621723",
+		"name": "crypto-arbitrage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26822357",
+		"_collection_link": "https://grey-desert-948820.postman.co/workspace/Sheva~8bdacb11-d5f2-486e-81bb-8b3778e10b38/collection/26822357-5bc7e059-9802-4380-ad12-e6c5b1621723?action=share&source=collection_link&creator=26822357"
+	},
+	"item": [
+		{
+			"name": "Binance",
+			"item": [
+				{
+					"name": "Get latest trade price for all symbols",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.binance.com/api/v3/ticker/price",
+							"protocol": "https",
+							"host": [
+								"api",
+								"binance",
+								"com"
+							],
+							"path": [
+								"api",
+								"v3",
+								"ticker",
+								"price"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get latest trade price for a symbol",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT",
+							"protocol": "https",
+							"host": [
+								"api",
+								"binance",
+								"com"
+							],
+							"path": [
+								"api",
+								"v3",
+								"ticker",
+								"price"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "BTCUSDT"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Poloniex",
+			"item": [
+				{
+					"name": "Get latest trade price for all symbols",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.poloniex.com/markets/price",
+							"protocol": "https",
+							"host": [
+								"api",
+								"poloniex",
+								"com"
+							],
+							"path": [
+								"markets",
+								"price"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get latest trade price for a symbol",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.poloniex.com/markets/BTC_USDT/price",
+							"protocol": "https",
+							"host": [
+								"api",
+								"poloniex",
+								"com"
+							],
+							"path": [
+								"markets",
+								"BTC_USDT",
+								"price"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JBEX",
+			"item": [
+				{
+					"name": "Get latest trade price for all symbols",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.jbex.com/openapi/quote/v1/ticker/24hr",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jbex",
+								"com"
+							],
+							"path": [
+								"openapi",
+								"quote",
+								"v1",
+								"ticker",
+								"24hr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get latest trade price for a symbol",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.jbex.com/openapi/quote/v1/ticker/24hr?symbol=BTCUSDT",
+							"protocol": "https",
+							"host": [
+								"api",
+								"jbex",
+								"com"
+							],
+							"path": [
+								"openapi",
+								"quote",
+								"v1",
+								"ticker",
+								"24hr"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "BTCUSDT"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bybit",
+			"item": [
+				{
+					"name": "Get latest trade price for all symbols",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bybit.com/v5/market/tickers?category=spot",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bybit",
+								"com"
+							],
+							"path": [
+								"v5",
+								"market",
+								"tickers"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "spot"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get latest trade price for a symbol",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bybit.com/v5/market/tickers?category=spot&symbol=BTCUSDT",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bybit",
+								"com"
+							],
+							"path": [
+								"v5",
+								"market",
+								"tickers"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "spot"
+								},
+								{
+									"key": "symbol",
+									"value": "BTCUSDT"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WhiteBIT",
+			"item": [
+				{
+					"name": "Get latest trade price for all symbols",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://whitebit.com/api/v4/public/ticker",
+							"protocol": "https",
+							"host": [
+								"whitebit",
+								"com"
+							],
+							"path": [
+								"api",
+								"v4",
+								"public",
+								"ticker"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
