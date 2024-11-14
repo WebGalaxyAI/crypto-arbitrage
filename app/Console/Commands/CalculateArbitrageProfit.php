@@ -66,7 +66,7 @@ class CalculateArbitrageProfit extends Command
         }
 
         usort($tableData, function($a, $b) {
-            return $b['Profit %'] <=> $a['Profit %'];
+            return (float)$b['Profit %'] <=> (float)$a['Profit %'];
         });
 
         if (!count($tableData)) {
